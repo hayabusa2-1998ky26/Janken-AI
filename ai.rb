@@ -1,3 +1,5 @@
+# じゃんけんの手予測AI
+
 # https://qiita.com/sugulu_Ogawa.../items/7a14117bbd3d926eb1f2
 
 state = []
@@ -54,7 +56,7 @@ max_number_of_steps = 10
 $num_dizitized = 6
 q_table = []
 
-for i in 1..$num_dizitized ** 5
+for i in 1..$num_dizitized ** 6
   q_table.push([])
   for j in 1..3
     q_table[-1].push(rand(-1.0..1.0))
@@ -62,7 +64,7 @@ for i in 1..$num_dizitized ** 5
 end
 
 observation = []
-for i in 1..5
+for i in 1..6
   observation.push(rand(0..2))
 end
 for episode in 0..num_episodes - 1
@@ -109,11 +111,11 @@ for episode in 0..num_episodes - 1
       puts "あなたの手"
       puts "-------------------"
       you_hand = gets.chomp
-      if you_hand == "パー"
+      if you_hand == "パー" or you_hand == "0"
         you_hand = 0
-      elsif you_hand == "チョキ"
+      elsif you_hand == "チョキ" or you_hand == "1"
         you_hand = 1
-      elsif you_hand == "グー"
+      elsif you_hand == "グー" or you_hand == "2"
         you_hand = 2
       else
         one_more = true
